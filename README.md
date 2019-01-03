@@ -43,8 +43,13 @@ mvn install:install-file -Dfile=path-to-your-artifact-jar \
 NOTE: tools.jar can come from a more recent JDK than the JVM to which we are attaching.
 
 ## Usage
-Execute the main file located in **WatchDir** with arguments of the path to the directories containing 
-the classes we want to automatically reload at changes.
+
+Execute the main file located in **WatchDir** with arguments of the listening port for JDI and 
+the paths of the directories containing the classes we want to automatically reload at changes.
+
+```
+java WatchDir JDIPortNumber dir1 [dir2 dir3 ...]
+```
 
 NOTES: 
 
