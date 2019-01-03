@@ -28,8 +28,9 @@ eg. in wildfly/kboss, find the following in standalone.conf:
 JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n"
 ```
 
-### If using the executable jar: download to your computer
+### If using the executable jar: download executable jar
 
+Excutable jar can be found in the 'dist' directory
 
 ### If using the sources: add tools.jar to your local maven repository
 
@@ -51,8 +52,15 @@ Execute the main file located in **WatchDir** with arguments of the listening po
 the paths of the directories containing the classes we want to automatically reload at changes.
 
 ```
-java WatchDir JDIPortNumber dir1 [dir2 dir3 ...]
+java -jar java-basic-hotswapper-jar-with-dependencies.jar JDIPortNumber dir1 [dir2 dir3 ...]
 ```
+
+eg. 
+
+```
+java -jar java-basic-hotswapper-jar-with-dependencies.jar 8787 /home/myhome/myprojects/oneproject/target/classes
+```
+
 
 NOTES: 
 
