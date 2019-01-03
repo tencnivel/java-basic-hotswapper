@@ -1,7 +1,8 @@
 # java-basic-hotswapper
 A java hotswapper to automatically redefine classes that have received in-body code changes.
 
-Motivation of the project: 
+## Motivation of the project
+
 Redeploying a project in a JEE servers is quite fast and it is not that bad to have to redeploy 
 a project when important changes (eg. adding/renaming a class, adding/renaming a method, 
 changing the signature of a method, adding/renaming an attribute ) are made to the code.
