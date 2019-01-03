@@ -28,7 +28,10 @@ eg. in wildfly/kboss, find the following in standalone.conf:
 JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n"
 ```
 
-### Add tools.jar to your local maven repository
+### If using the executable jar: download to your computer
+
+
+### If using the sources: add tools.jar to your local maven repository
 
 Install tools.jar from you jdk (in the lib folder) in your local maven dependencies
 

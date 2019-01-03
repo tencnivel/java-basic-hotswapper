@@ -28,5 +28,26 @@
 
         
       </dependencies>
+      
+       <build>
+        <plugins>
+           <!-- USAGE: mvn clean compile assembly:single -->
+          <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <configuration>
+              <finalName>java-basic-hotswapper</finalName>
+              <archive>
+                <manifest>
+                  <mainClass>org.tencnivel.hotswapper.WatchDir</mainClass>
+                </manifest>
+              </archive>
+              <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+              </descriptorRefs>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+
     
 </project>
