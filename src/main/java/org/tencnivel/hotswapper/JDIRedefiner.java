@@ -40,9 +40,6 @@ public class JDIRedefiner {
 
     private VirtualMachine vm;
 
-    /** Port at which to connect to the agent of the VM. **/
-    public static final int PORT = 8787;
-    
     public void redefineClass(Path pathToClass) {
         
         String className = pathToClass.getName(pathToClass.getNameCount() - 1).toString();
