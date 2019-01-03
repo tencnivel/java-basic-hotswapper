@@ -32,25 +32,6 @@ import org.apache.poi.util.IOUtils;
  */
 public class JDIRedefiner {
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String[] args) {
-//        
-//        
-//        
-//        try {
-//            // TODO code application logic here
-//            JDIRedefiner jDIRedefiner = new JDIRedefiner(8787);
-//            Map<ReferenceType,byte[]> map = jDIRedefiner.createMapOfReferenceTypesToBeRedefined_TEST();
-//            jDIRedefiner.redefineClasses(map);
-//
-//            jDIRedefiner.close();
-//        } catch (IOException ex) {
-//            throw new RuntimeException(ex);
-//        }
-//        
-//    }
     
     private Logger logger = Logger.getLogger(JDIRedefiner.class.getName());
     
@@ -90,31 +71,6 @@ public class JDIRedefiner {
         
     }
 
-//    public Map<ReferenceType,byte[]> createMapOfReferenceTypesToBeRedefined_TEST() {
-//        
-//        Map<ReferenceType,byte[]> map = new HashMap<>();
-//        
-//        for (ReferenceType ref : vm.allClasses()){
-//            if (ref.name().contains("com.bbppbiz.controller")) {
-//                System.out.println(ref.name());
-//            }
-//            if (ref.name().equals("com.bbppbiz.controller.AuthenticationController")) {                        
-//                
-//                try {
-//                    map.put(ref, IOUtils.toByteArray(
-//                            new FileInputStream("/home/vlaugier/CODE/BBPPBIZ/bbppbiz/src/main/webapp/WEB-INF/classes/com/bbppbiz/controller/AuthenticationController.class")
-//                    ));                    
-//                } catch (IOException ex) {
-//                    Logger.getLogger(JDIRedefiner.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//
-//            }
-//            
-//        }
-//        
-//        return map;
-//        
-//    }
     
     public JDIRedefiner(int port) throws IOException {
             vm = connect(port);
