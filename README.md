@@ -48,6 +48,7 @@ NOTE: tools.jar can come from a more recent JDK than the JVM to which we are att
 
 ## Usage
 
+### If using the executable jar
 Execute the main file located in **WatchDir** with arguments of the listening port for JDI and 
 the paths of the directories containing the classes we want to automatically reload at changes.
 
@@ -60,6 +61,9 @@ eg.
 ```
 java -jar java-basic-hotswapper-jar-with-dependencies.jar 8787 /home/myhome/myprojects/oneproject/target/classes
 ```
+
+### If using the sources
+The main class is in WatchDir.java
 
 
 NOTES: 
