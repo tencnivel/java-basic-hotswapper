@@ -11,6 +11,13 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     
+     <repositories>
+      <repository>
+            <id>project-repository</id>
+            <url>file://${user.dir}/repository</url>
+        </repository>
+    </repositories>
+    
     <dependencies>
                
         <dependency>
@@ -20,10 +27,9 @@
         </dependency>  
         
         <dependency>
-            <groupId>com.sun.jdk</groupId>
-            <artifactId>tools</artifactId>
-            <!--<version>1.6.0_18-fromJDK1.7</version>-->            
-            <version>1.7.0_07-fromJDK1.8</version>       
+            <groupId>net.java.openjdk</groupId>
+            <artifactId>tools</artifactId>            
+            <version>from-openjdk1.8.0_202</version>       
         </dependency>
 
         
