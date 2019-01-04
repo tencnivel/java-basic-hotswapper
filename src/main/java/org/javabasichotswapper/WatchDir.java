@@ -29,7 +29,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.basicjavahotswapper;
+package org.javabasichotswapper;
 
 import java.nio.file.*;
 import static java.nio.file.StandardWatchEventKinds.*;
