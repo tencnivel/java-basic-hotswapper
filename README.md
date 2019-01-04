@@ -13,7 +13,6 @@ containing the classes of the project
 java -jar java-basic-hotswapper-jar-with-dependencies.jar JDIPortNumber dir1 [dir2 dir3 ...]
 ```
 
- 
 
 ## Motivation of the project
 

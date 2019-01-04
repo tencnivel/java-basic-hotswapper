@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.tencnivel.hotswapper;
+package org.basicjavahotswapper;
 
 import com.sun.jdi.AbsentInformationException;
 import java.io.IOException;
