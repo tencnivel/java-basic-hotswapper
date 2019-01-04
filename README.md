@@ -4,8 +4,9 @@ Works with any class including JEE beans.
 
 ## Quickstart
 
-  * Modify your JEE server to enable JPDA (see *Prerequisite*).
+  * Modify your JEE server to enable JPDA (see *Prerequisite*)  
   * Download the executable jar from the *dist* directory
+  * Start the JEE server
   * Execute the executable jar passing the argument of the JDI port and the directories 
 containing the classes of the project
 
@@ -73,8 +74,6 @@ NOTES:
 
  * If using symlink, declare the source directory and not the symlink, if not WatchDir 
 will not see the changes to the class files.
- * The program can be executed before the server is started because it attaches to the JVM
-at every change (and not at startup)
 
 ### Using the executable jar
 

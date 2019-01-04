@@ -80,6 +80,7 @@ public class WatchDir {
     private final boolean recursive;
     private boolean trace = false;
     private int jdiPortNumber;
+    private JDIRedefiner jdiRedefiner;
 
     @SuppressWarnings("unchecked")
     static <T> WatchEvent<T> cast(WatchEvent<?> event) {
@@ -131,10 +132,19 @@ public class WatchDir {
         this.keys = new HashMap<WatchKey,Path>();
         this.recursive = recursive;
 
+        // Connect the JDI
+        JDIRedefiner jdiRedefiner = null;
+        try {
+            this.jdiRedefiner = new JDIRedefiner(this.jdiPortNumber);            
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }       
+        
+         
         if (recursive) {
             System.out.format("Scanning %s ...\n", dir);
             registerAll(dir);
-            System.out.println("Done.");
+            System.out.println("Done. Waiting for changes");
         } else {
             register(dir);
         }
@@ -147,6 +157,7 @@ public class WatchDir {
      * Process all events for keys queued to the watcher
      */
     void processEvents() {
+        
         for (;;) {
 
             // wait for key to be signalled
@@ -162,7 +173,7 @@ public class WatchDir {
                 System.err.println("WatchKey not recognized!!");
                 continue;
             }
-
+            
             for (WatchEvent<?> event: key.pollEvents()) {
                 WatchEvent.Kind kind = event.kind();
 
@@ -192,19 +203,20 @@ public class WatchDir {
                 }
                 
                 if (kind == ENTRY_MODIFY 
-                        && child.toString().endsWith(".class")
-                        && !child.toString().contains("$")) {
+                        && child.toString().endsWith(".class")) {
                     System.out.format("Reload class %s\n", child);
-                    try {
-                        JDIRedefiner jdiRedefiner = new JDIRedefiner(this.jdiPortNumber);
-                        jdiRedefiner.redefineClass(child);
-                        jdiRedefiner.close();
-                    } catch (IOException ex) {
-                        Logger.getLogger(WatchDir.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+//                    try {
+//                        JDIRedefiner jdiRedefiner = new JDIRedefiner(this.jdiPortNumber);
+                        this.jdiRedefiner.redefineClass(child);
+//                        jdiRedefiner.close();
+//                    } catch (IOException ex) {
+//                        Logger.getLogger(WatchDir.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
                     
                 }
             }
+           
+           
 
             // reset key and remove from set if directory no longer accessible
             boolean valid = key.reset();
