@@ -191,7 +191,9 @@ public class WatchDir {
                     }
                 }
                 
-                if (kind == ENTRY_MODIFY && child.toString().endsWith(".class")) {
+                if (kind == ENTRY_MODIFY 
+                        && child.toString().endsWith(".class")
+                        && !child.toString().contains("$")) {
                     System.out.format("Reload class %s\n", child);
                     try {
                         JDIRedefiner jdiRedefiner = new JDIRedefiner(this.jdiPortNumber);
