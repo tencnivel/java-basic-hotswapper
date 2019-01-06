@@ -35,7 +35,7 @@ not support it, the server needs to be ran from the IDE).
 ## Prerequisite
 
 ### Enable JPDA in your server so that JDI can attach to it
-eg. in wildfly/kboss, uncomment the following line in standalone.conf:
+eg. in wildfly/jboss, uncomment the following line in standalone.conf:
 
 ```
 # Sample JPDA settings for remote socket debugging
